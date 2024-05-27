@@ -25,7 +25,6 @@ export const TodoList = ({
               <p className='text-gray-600'>{todo.description}</p>
               <Link
                 className='text-blue-500 hover:text-blue-700'
-                prefetch={false}
                 href={`/${todo.id}`}>
                 Edit
               </Link>
