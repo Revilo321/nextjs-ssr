@@ -1,40 +1,18 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
+import { Pagination } from './pagination'
 
-const pageSize = 10
-const visiblePages = 5
 export const TodoList = ({
   todos,
 }: {
   todos: [{ id: number; title: string; description: string }]
 }) => {
   const [currentPage, setCurrentPage] = useState<number>(1)
-  const pageCount = Math.ceil(todos.length / pageSize)
-  const startIndex = (currentPage - 1) * pageSize
-  const currentTodos = todos.slice(startIndex, startIndex + pageSize)
-
-  const handlePageChange = (pageNumber: number) => {
-    setCurrentPage(pageNumber)
-  }
-  const paginationRange = () => {
-    const current = currentPage
-    const total = pageCount
-    const visible = visiblePages
-
-    if (total <= visible) {
-      return [...Array(total).keys()].map((n) => n + 1)
-    }
-    let start = Math.max(1, current - Math.floor(visible / 2))
-    let end = start + visible - 1
-
-    if (end > total) {
-      end = total
-      start = end - visible + 1
-    }
-
-    return [...Array(end - start + 1).keys()].map((n) => n + start)
-  }
+  const itemsPerPage = 10
+  const indexOfLastTodo = currentPage * itemsPerPage
+  const indexOfFirstTodo = indexOfLastTodo - itemsPerPage
+  const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo)
 
   return (
     <div className='container mx-auto px-4 text-black'>
@@ -53,22 +31,12 @@ export const TodoList = ({
             </li>
           ))}
         </ul>
-        {pageCount > 1 && (
-          <div className='flex justify-center space-x-2 mt-4'>
-            {paginationRange().map((number) => (
-              <button
-                key={number}
-                onClick={() => handlePageChange(number)}
-                className={`px-4 py-2 rounded-lg ${
-                  currentPage === number
-                    ? 'bg-blue-500 text-white'
-                    : 'bg-gray-300'
-                }`}>
-                {number}
-              </button>
-            ))}
-          </div>
-        )}
+        <Pagination
+          totalItems={todos.length}
+          itemsPerPage={itemsPerPage}
+          currentPage={currentPage}
+          onPageChange={setCurrentPage}
+        />
       </div>
     </div>
   )

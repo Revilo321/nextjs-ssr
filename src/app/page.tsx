@@ -1,6 +1,4 @@
-import Link from 'next/link'
 import { createClient } from '../../utils/supabase/server'
-import { Form } from './components/form'
 import { TodoList } from './components/todoList'
 
 async function getData() {
