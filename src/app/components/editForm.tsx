@@ -1,3 +1,4 @@
+'use client'
 import { editTodo } from '../actions'
 
 export const EditForm = ({
