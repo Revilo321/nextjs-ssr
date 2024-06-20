@@ -1,4 +1,5 @@
 'use client'
+import { useState } from 'react'
 import { editTodo } from '../actions'
 
 export const EditForm = ({
@@ -6,6 +7,7 @@ export const EditForm = ({
 }: {
   todo: { id: number; title: string; description: string }
 }) => {
+  const [count, setCount] = useState(0)
   const updateTodoWithId = editTodo.bind(null, todo.id)
   return (
     <div className='min-h-screen bg-gray-100 flex justify-center items-center'>
@@ -42,9 +44,9 @@ export const EditForm = ({
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             rows={4}></textarea>
         </div>
-
+        {count}
         <button
-          type='submit'
+          onClick={() => setCount(count + 1)}
           className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'>
           Update Todo
         </button>

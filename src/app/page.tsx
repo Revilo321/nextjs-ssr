@@ -21,6 +21,9 @@ export default async function Home() {
         <Link className='text-black' href={'/test'}>
           Test
         </Link>
+        <EditForm
+          todo={{ id: 1, title: 'test', description: 'dette er en test' }}
+        />
         {/* <TodoList todos={data} /> */}
       </div>
     </div>
