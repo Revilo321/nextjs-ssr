@@ -1,5 +1,7 @@
+import Link from 'next/link'
 import { createClient } from '../../utils/supabase/server'
 import { TodoList } from './components/todoList'
+import { EditForm } from './components/editForm'
 
 async function getData() {
   const supabase = createClient()
@@ -11,12 +13,15 @@ async function getData() {
 }
 
 export default async function Home() {
-  const data = await getData()
+  /* const data = await getData() */
 
   return (
     <div className='min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12'>
       <div className='relative py-3'>
-        <TodoList todos={data} />
+        <Link className='text-black' href={'/test'}>
+          Test
+        </Link>
+        {/* <TodoList todos={data} /> */}
       </div>
     </div>
   )
