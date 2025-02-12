@@ -1,19 +1,24 @@
 models:
-  Post:
+  Post: # models must be singular and CamelCased
+    belongsTo: [User] # Relations will be used in REST and GraphQL
     hasMany: [Comment]
+    count: 50 # generate 50 items
     fake:
-      _count: 10
-      cover: { imageURL: [1920, 1080] }
-      title: { loremWords: [5, 20] }
-      body: { loremParagraphs: [10, 100] }
-      category: { oneOfString: [one, two, three] }
-      isDraft: { bool: 20 }
-      views: { int: [0, 1000] }
-      createdAt: { dateTime: [2010-01-01T00:00:00Z, 2020-12-31T23:59:59Z] }
+      title: loremWords # random generator have default values
+      body: { loremWords: [3, 10] } # but you can pass arguments for some
+    data: [
+        { title: some non-random title }, # update title for post#1
+        { title: some non-random title }, # update title for post#2
+      ]
+
   Comment:
     belongsTo: [Post]
+    count: 100
     fake:
-      _count: 25
       email: email
-      body: { loremParagraphs: [10, 100] }
-      createdAt: { dateTime: [2010-01-01T00:00:00Z, 2020-12-31T23:59:59Z] }
+      body: loremWords
+
+  User:
+    hasMany: [Post]
+    # You can also provide all the data yourself and not use random generators
+    data: [{ name: Alice }] # create a single user
