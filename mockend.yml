@@ -1,3 +1,5 @@
+key: secret_key
+
 models:
   Post: # models must be singular and CamelCased
     belongsTo: [User] # Relations will be used in REST and GraphQL
