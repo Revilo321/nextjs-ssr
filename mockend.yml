@@ -4,14 +4,9 @@ models:
     hasMany: [Comment]
     count: 50 # generate 50 items
     fake:
+      userId: {int[1,2]}
       body: { loremWords: [3, 10] } # but you can pass arguments for some
-    data: [
-        {
-          title: "This is my first post about Dreamplan, im so happy",
-          userId: 1,
-        }, # update title for post#1
-        { title: "Dreamplan is great, here's why!", userId: 2 }, # update title for post#2
-      ]
+      title: { loremWords: [1, 3] } # faker methods
 
   Comment:
     belongsTo: [Post]
