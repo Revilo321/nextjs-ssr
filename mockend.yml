@@ -15,7 +15,7 @@ models:
     belongsTo: [Post]
     count: 100
     fake:
-      postId: 1
+      postId: "1"
       email: email
       body: loremWords
 
