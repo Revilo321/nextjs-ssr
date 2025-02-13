@@ -15,9 +15,9 @@ models:
     belongsTo: [Post]
     count: 100
     fake:
-      postId: "1"
       email: email
-      body: loremWords
+      body: loremWords'
+    data: [{ postId: 1 }, { postId: 2 }] # create a single comment for each post
 
   User:
     hasMany: [Post]
