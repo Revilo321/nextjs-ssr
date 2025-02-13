@@ -5,8 +5,8 @@ models:
     count: 50 # generate 50 items
     fake:
       userId: { int: [1, 2] }
+      title: loremWords # faker methods
       body: { loremWords: [3, 10] } # but you can pass arguments for some
-      title: { loremWords: [1, 3] } # faker methods
 
   Comment:
     belongsTo: [Post]
