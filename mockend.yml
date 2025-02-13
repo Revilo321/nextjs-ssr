@@ -1,5 +1,5 @@
 models:
-  Test:
+  Post:
     belongsTo: [User]
     hasMany: [Comment]
     fake:
@@ -16,5 +16,6 @@ models:
 
   User:
     hasMany: [Post]
-    belongsTo: [Post]
+    fake:
+      postId: { int: [1, 10] }
     data: [{ name: Alice }, { name: Oliver }]
