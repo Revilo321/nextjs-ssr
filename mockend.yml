@@ -1,5 +1,5 @@
 models:
-  Post:
+  Test:
     belongsTo: [User]
     hasMany: [Comment]
     fake:
