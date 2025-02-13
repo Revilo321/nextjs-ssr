@@ -2,8 +2,8 @@ models:
   Post:
     belongsTo: [User]
     hasMany: [Comment]
-    count: 3
     fake:
+      _count: 3
       userId: { int: [1, 3] }
       title: loremWords
       body: { loremWords: [3, 10] }
