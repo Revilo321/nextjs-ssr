@@ -15,10 +15,10 @@ models:
     belongsTo: [Post]
     count: 100
     fake:
+      postId: 1
       email: email
       body: loremWords
 
   User:
     hasMany: [Post]
-    # You can also provide all the data yourself and not use random generators
-    data: [{ name: Alice }, {name: Oliver}] # create a single user
+    data: [{ name: Alice }, { name: Oliver }] # create a single user
