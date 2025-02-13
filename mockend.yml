@@ -21,4 +21,4 @@ models:
   User:
     hasMany: [Post]
     # You can also provide all the data yourself and not use random generators
-    data: [{ name: Alice }] # create a single user
+    data: [{ name: Alice }, {name: Oliver}] # create a single user
