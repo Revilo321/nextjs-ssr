@@ -1,12 +1,12 @@
 models:
-  Post: # models must be singular and CamelCased
-    belongsTo: [User] # Relations will be used in REST and GraphQL
+  Post:
+    belongsTo: [User]
     hasMany: [Comment]
-    count: 50 # generate 50 items
+    count: 50
     fake:
       userId: { int: [1, 2] }
-      title: loremWords # faker methods
-      body: { loremWords: [3, 10] } # but you can pass arguments for some
+      title: loremWords
+      body: { loremWords: [3, 10] }
 
   Comment:
     belongsTo: [Post]
@@ -30,4 +30,5 @@ models:
 
   User:
     hasMany: [Post]
-    data: [{ name: Alice }, { name: Oliver }] # create a single user
+    belongsTo: [Post]
+    data: [{ name: Alice }, { name: Oliver }]
