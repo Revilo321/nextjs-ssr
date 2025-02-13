@@ -17,7 +17,19 @@ models:
     fake:
       email: email
       body: loremWords'
-    data: [{ postId: 1 }, { postId: 2 }] # create a single comment for each post
+    data:
+      [
+        { postId: 1 },
+        { postId: 2 },
+        { postId: 1 },
+        { postId: 2 },
+        { postId: 3 },
+        { postId: 3 },
+        { postId: 1 },
+        { postId: 2 },
+        { postId: 3 },
+        { postId: 3 },
+      ]
 
   User:
     hasMany: [Post]
