@@ -3,7 +3,6 @@ models:
     belongsTo: [User]
     hasMany: [Comment]
     fake:
-      _count: 3
       userId: { int: [1, 3] }
       title: loremWords
       body: { loremWords: [3, 10] }
@@ -14,19 +13,6 @@ models:
     fake:
       email: email
       body: loremWords'
-    data:
-      [
-        { postId: 1 },
-        { postId: 2 },
-        { postId: 1 },
-        { postId: 2 },
-        { postId: 3 },
-        { postId: 3 },
-        { postId: 1 },
-        { postId: 2 },
-        { postId: 3 },
-        { postId: 3 },
-      ]
 
   User:
     hasMany: [Post]
